@@ -2,8 +2,8 @@
 
 # 🖥 EthanolRemoteDiscord 🖥
 
-![license-info](https://img.shields.io/github/license/Veslydev/EthanolRemoteDiscord?logo=gnu&style=for-the-badge&colorA=302D41&colorB=f9e2af&logoColor=f9e2af)
-![stars-infoa](https://img.shields.io/github/stars/Veslydev/EthanolRemoteDiscord?colorA=302D41&colorB=f9e2af&style=for-the-badge)
+![license-infos](https://img.shields.io/github/license/Veslydev/EthanolRemoteDiscord?logo=gnu&style=for-the-badge&colorA=302D41&colorB=f9e2af&logoColor=f9e2af)
+![stars-infos](https://img.shields.io/github/stars/Veslydev/EthanolRemoteDiscord?colorA=302D41&colorB=f9e2af&style=for-the-badge)
 
 ![Last-Comitt](https://img.shields.io/github/last-commit/Veslydev/EthanolRemoteDiscord?style=for-the-badge&colorA=302D41&colorB=b4befe)
 ![Comitts Year](https://img.shields.io/github/commit-activity/y/Veslydev/EthanolRemoteDiscord?style=for-the-badge&colorA=302D41&colorB=f9e2af&logoColor=f9e2af)
