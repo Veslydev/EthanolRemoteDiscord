@@ -26,9 +26,14 @@ Download The repo by clicking code and download the zip Extract the zip to somew
 
 And download the EthanolRemoteClient.jar from download channel from ethanol's discord server and put in \Documents\RemoteDiscord
 
-Edit the main.py TOKEN by your discord bot's token and give PRESENCE INTENT, SERVER MEMBERS INTENT, MESSAGE CONTENT INTENT From same page as get token
+Edit the .env.example TOKEN by your discord bot's token and give PRESENCE INTENT, SERVER MEMBERS INTENT, MESSAGE CONTENT INTENT From same page as get token
+and rename .env.example to .env
 
 Invite the bot to your server and
+
+Install the modules by
+
+```pip install discord.py requests asyncio python-dotenv```
 
 Open the python file by
 
