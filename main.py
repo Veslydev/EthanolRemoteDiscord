@@ -34,10 +34,11 @@ async def send_embed_to_user(user_id, title, description):
             embed.set_author(name=user.name)
         await user.send(embed=embed)
     else:
+        # Handle the case where the user is not found
         print(f"Unable to send DM to user with ID: {user_id}. User not found.")
 
 # Function to read subprocess output
-async def read_output(user_id, process):
+async def read_output(user_id, process, channel):
     while True:
         output = await process.stdout.readline()
         if output == b'':
@@ -46,7 +47,7 @@ async def read_output(user_id, process):
         await send_embed_to_user(user_id, "Ethanol Output", output_text)
 
 # Function to read subprocess errors
-async def read_error(user_id, process):
+async def read_error(user_id, process, channel):
     while True:
         error = await process.stderr.readline()
         if error == b'':
@@ -74,8 +75,6 @@ async def on_message(message):
 
             try:
                 param = message.content.split(' ')[1]
-                # Sanitize the parameter
-                param = ''.join(param.split()).replace(';', '')
                 process = await asyncio.create_subprocess_exec(
                     'java', '-jar', 'EthanolRemoteClient.jar', param,
                     stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE
@@ -84,8 +83,8 @@ async def on_message(message):
                 await send_embed_to_user(user_id, "Login Successful", "Ethanol file executed, connecting...")
                 
                 # Read output and errors asynchronously
-                asyncio.create_task(read_output(user_id, process))
-                asyncio.create_task(read_error(user_id, process))
+                asyncio.create_task(read_output(user_id, process, message.channel))
+                asyncio.create_task(read_error(user_id, process, message.channel))
             except IndexError:
                 await send_embed_to_user(user_id, "Login Error", "Please enter a parameter! For example !login <Auth-Key>")
 
@@ -95,17 +94,14 @@ async def on_message(message):
                 return
             
             process = user_processes.pop(user_id)
-            if process.returncode is None:  # Check if the process is still running
-                process.terminate()
-                await process.wait()
+            process.terminate()
+            await process.wait()
             await send_embed_to_user(user_id, "Logout Successful", "The Java process has been finalized.")
 
         elif user_id in user_processes:
             process = user_processes[user_id]
             if process.stdin:
                 command = message.content.strip()
-                # Sanitize the command
-                command = ''.join(command.split()).replace(';', '')
                 process.stdin.write((command + '\n').encode('utf-8'))
                 await process.stdin.drain()
             else:
