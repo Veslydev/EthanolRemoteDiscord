@@ -26,7 +26,17 @@ Just use way;
 
 Add bot to your server by
 
+github version
+
+https://discord.com/oauth2/authorize?client_id=1250891211972280470&permissions=2048&integration_type=0&scope=bot
+
+molotov Version
+
 https://discord.com/oauth2/authorize?client_id=1246261890015957072&permissions=2048&integration_type=0&scope=bot
+
+im github version author and icon is your discord pfp and the username
+
+in molotov version the icon and author name is molotov and molotov cat
 
 Now type `!login <Server-Auth>` to bot's dm and you are in the ethanol type `help` for example
 
