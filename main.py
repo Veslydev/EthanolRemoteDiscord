@@ -34,7 +34,6 @@ async def send_embed_to_user(user_id, title, description):
             embed.set_author(name=user.name)
         await user.send(embed=embed)
     else:
-        # Handle the case where the user is not found
         print(f"Unable to send DM to user with ID: {user_id}. User not found.")
 
 # Function to read subprocess output
@@ -57,7 +56,7 @@ async def read_error(user_id, process):
 
 @client.event
 async def on_ready():
-    print(f'Logged in as {client.user.name}')
+    print(f'{client.user} logged in as')
 
 @client.event
 async def on_message(message):
@@ -75,6 +74,7 @@ async def on_message(message):
 
             try:
                 param = message.content.split(' ')[1]
+                # Sanitize the parameter
                 param = ''.join(param.split()).replace(';', '')
                 process = await asyncio.create_subprocess_exec(
                     'java', '-jar', 'EthanolRemoteClient.jar', param,
@@ -95,14 +95,17 @@ async def on_message(message):
                 return
             
             process = user_processes.pop(user_id)
-            process.terminate()
-            await process.wait()
+            if process.returncode is None:  # Check if the process is still running
+                process.terminate()
+                await process.wait()
             await send_embed_to_user(user_id, "Logout Successful", "The Java process has been finalized.")
 
         elif user_id in user_processes:
             process = user_processes[user_id]
             if process.stdin:
                 command = message.content.strip()
+                # Sanitize the command
+                command = ''.join(command.split()).replace(';', '')
                 process.stdin.write((command + '\n').encode('utf-8'))
                 await process.stdin.drain()
             else:
