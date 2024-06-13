@@ -22,6 +22,16 @@ If you want to help you can open a pull request.
 
 ## 📃 | How To Use
 
+Just use way;
+
+Add bot to your server by
+
+https://discord.com/oauth2/authorize?client_id=1246261890015957072&permissions=2048&integration_type=0&scope=bot
+
+Now type `!login <Server-Auth>` to bot's dm and you are in the ethanol type `help` for example
+
+Self Host way;
+
 Download The repo by clicking code and download the zip Extract the zip to somewhere like \Documents\RemoteDiscord
 
 And download the EthanolRemoteClient.jar from download channel from ethanol's discord server and put in \Documents\RemoteDiscord
