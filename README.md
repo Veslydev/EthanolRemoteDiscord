@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🖥 EthanolRemoteDiscord 🖥
+# 🖥 EthanolConsoleDiscord 🖥
 
 ![license-infos](https://img.shields.io/github/license/Veslydev/EthanolRemoteDiscord?logo=gnu&style=for-the-badge&colorA=302D41&colorB=f9e2af&logoColor=f9e2af)
 ![stars-infos](https://img.shields.io/github/stars/Veslydev/EthanolRemoteDiscord?colorA=302D41&colorB=f9e2af&style=for-the-badge)
@@ -14,7 +14,7 @@
 
 ## 📃 | Description
 
-Ethanol Remote Client's discord bridge
+Ethanol Console Client's discord bridge
 
 If you enjoy this you can star the repo
 
@@ -42,9 +42,9 @@ Now type `!login <Server-Auth>` to bot's dm and you are in the ethanol type `hel
 
 Self Host way;
 
-Download The repo by clicking code and download the zip Extract the zip to somewhere like \Documents\RemoteDiscord
+Download The repo by clicking code and download the zip Extract the zip to somewhere like Documents\RemoteDiscord
 
-And download the EthanolRemoteClient.jar from download channel from ethanol's discord server and put in \Documents\RemoteDiscord
+And download the EthanolConsole.jar from ethanol's repo https://github.com/EthanolMC/EthanolConsole/releases and put in somwhere your directory Documents\RemoteDiscord
 
 Edit the .env.example TOKEN by your discord bot's token and give PRESENCE INTENT, SERVER MEMBERS INTENT, MESSAGE CONTENT INTENT From same page as get token
 and rename .env.example to .env
