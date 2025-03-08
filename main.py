@@ -76,7 +76,7 @@ async def on_message(message):
             try:
                 param = message.content.split(' ')[1]
                 process = await asyncio.create_subprocess_exec(
-                    'java', '-jar', 'EthanolRemoteClient.jar', param,
+                    'java', '-jar', 'EthanolConsole.jar', param,
                     stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE
                 )
                 user_processes[user_id] = process
